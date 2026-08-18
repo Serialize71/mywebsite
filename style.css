@@ -329,7 +329,8 @@ body {
 .about-section {
   background: var(--bg2);
   border-top: 1px solid var(--border);
-  padding: 96px 72px;
+  padding: 96px 72px 96px;
+  min-height: auto;
 }
 
 .about-grid {
@@ -435,6 +436,8 @@ body {
 .edu-card {
   display: flex;
   gap: 32px;
+  align-items: center;
+ 
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
