@@ -26,7 +26,7 @@
       <li><a href="#skills" class="nav-link" data-label="Skills">
         <span class="nav-icon">&#x1f527;</span>
       </a></li>
-      <li><a href="#projects" class="nav-link" data-label="Projects">
+      <li><a href="#projects" class="nav-link" data-label="Projects and Certificates">
         <span class="nav-icon">&#x1f468;&#x200d;&#x1f4bb;</span>
       </a></li>
       <li><a href="#contact" class="nav-link" data-label="Contact">
@@ -44,10 +44,10 @@
       <div class="hero-inner">
         <div class="hero-content">
           <div class="hero-text">
-            <div class="hero-tag">
+            <!--div class="hero-tag">
               <span class="blink-dot"></span>
               Electrical Engineering Student
-            </div>
+            </div-->
             <h1 class="hero-name">
               Abdulrahman<br/>
               <span class="name-name">Hadi Ataya</span>
@@ -217,17 +217,69 @@
     <section id="projects" class="section projects-section">
       <div class="section-eyebrow">PROJECTS</div>
       <h2 class="section-title">What I've <span class="accent">Built</span></h2>
-      <div class="projects-placeholder">
-        <div class="placeholder-card">
-          <div class="placeholder-icon">◈</div>
-          <h3>Projects Coming Soon</h3>
-          <p>This section will showcase hardware builds, embedded firmware, ML experiments, and more. Check back as Abdulrahman's portfolio grows.</p>
-          <div class="placeholder-tags">
-            <span class="chip">Robotics</span>
-            <span class="chip">PCB Design</span>
-            <span class="chip">ML Models</span>
-            <span class="chip">IoT</span>
-          </div>
+      <div class="projects-toolbar">
+        <div class="projects-tabs" role="tablist" aria-label="Portfolio content">
+          <button class="projects-tab active" type="button" role="tab" aria-selected="true" aria-controls="projects-panel" data-view="projects">Projects</button>
+          <button class="projects-tab" type="button" role="tab" aria-selected="false" aria-controls="projects-panel" data-view="certificates">Certificates</button>
+        </div>
+        <div class="slider-controls" aria-label="Project slider controls">
+          <button class="slider-arrow" type="button" data-direction="prev" aria-label="Show previous items">←</button>
+          <button class="slider-arrow" type="button" data-direction="next" aria-label="Show next items">→</button>
+        </div>
+      </div>
+      <div class="projects-panel" id="projects-panel" role="tabpanel">
+        <div class="projects-track" data-track="projects">
+          <article class="project-card">
+            <span class="project-index"></span>
+            <div class="project-mark">⬡</div>
+            <h3>Robotics Builds</h3>
+            <p>Hands-on robotics work combining sensors, control logic, and embedded hardware integration.</p>
+            <div class="project-tags"><span class="chip">Robotics</span><span class="chip">Embedded</span></div>
+          </article>
+          <article class="project-card">
+            <span class="project-index"></span>
+            <div class="project-mark">◈</div>
+            <h3>Neural Networks</h3>
+            <p>Machine learning experiments focused on computer vision, model training, and practical evaluation.</p>
+            <div class="project-tags"><span class="chip">PyTorch</span><span class="chip">Computer Vision</span></div>
+          </article>
+          <article class="project-card">
+            <span class="project-index"></span>
+            <div class="project-mark">▣</div>
+            <h3>PCB Design</h3>
+            <p>Electronic design work from schematics through board layout and hardware prototyping.</p>
+            <div class="project-tags"><span class="chip">KiCad</span><span class="chip">OrCAD</span></div>
+          </article>
+          <article class="project-card">
+            <span class="project-index"></span>
+            <div class="project-mark">⌁</div>
+            <h3>Wireless Systems</h3>
+            <p>Exploring communication systems, antenna fundamentals, and connected embedded devices.</p>
+            <div class="project-tags"><span class="chip">Wireless</span><span class="chip">IoT</span></div>
+          </article>
+        </div>
+        <div class="projects-track is-hidden" data-track="certificates" aria-hidden="true">
+          <article class="project-card certificate-card">
+            <span class="project-index"></span>
+            <div class="project-mark">◇</div>
+            <h3>CCNA Certification</h3>
+            <p>Currently studying networking fundamentals and preparing for the Cisco CCNA certification.</p>
+            <div class="project-tags"><span class="chip">In Progress</span><span class="chip">Networking</span></div>
+          </article>
+          <article class="project-card certificate-card">
+            <span class="project-index"></span>
+            <div class="project-mark">◇</div>
+            <h3>Certificates Coming Soon</h3>
+            <p>Professional certifications and completed training will be added here as they are earned.</p>
+            <div class="project-tags"><span class="chip">Learning</span></div>
+          </article>
+          <article class="project-card certificate-card">
+            <span class="project-index"></span>
+            <div class="project-mark">◇</div>
+            <h3>Professional Development</h3>
+            <p>A dedicated space for future courses, workshops, and engineering credentials.</p>
+            <div class="project-tags"><span class="chip">Coming Soon</span></div>
+          </article>
         </div>
       </div>
     </section>
