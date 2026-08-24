@@ -189,6 +189,7 @@ body {
   align-items: center;
   justify-content: center;
   width: min(340px, 36vw);
+  aspect-ratio: 1;
   padding: 0;
   background: linear-gradient(135deg, rgba(18, 28, 42, 0.96), rgba(8, 12, 20, 0.95));
   border: 1px solid rgba(0, 212, 255, 0.28);
@@ -200,12 +201,10 @@ body {
 .hero-portrait {
 
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
   object-position: center center;
   transform: scale(1.1);
-  margin-top: 14px;
   transform-origin: center center;
   display: block;
   border-radius: 24px;
@@ -863,17 +862,16 @@ body {
   }
 
   .hero-portrait {
-    width: min(220px, 60vw);
+    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   :root { --sidebar-w: 0px; }
-  .sidebar { display: none; }
   .section { padding: 56px 24px; }
   .hero-name { font-size: 36px; }
   .hero-content { gap: 28px; }
-  .hero-portrait { width: min(200px, 70vw); }
+  .hero-portrait-wrap { width: min(200px, 70vw); }
   .skill-item { grid-template-columns: 90px 1fr 64px; }
   .projects-toolbar { align-items: flex-start; flex-direction: column; }
   .slider-controls { align-self: flex-end; margin-top: -48px; }
