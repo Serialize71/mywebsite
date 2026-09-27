@@ -873,12 +873,13 @@ body {
 }
 
 @media (max-width: 600px) {
-  :root { --sidebar-w: 0px; }
+  :root { --sidebar-w: 56px; }
   .section { padding: 56px 24px; }
   .hero-name { font-size: 36px; }
   .hero-content { gap: 28px; }
   .hero-portrait-wrap { width: min(200px, 70vw); }
   .skill-item { grid-template-columns: 90px 1fr 64px; }
-  .projects-toolbar { align-items: flex-start; flex-direction: column; }
-  .slider-controls { align-self: flex-end; margin-top: -48px; }
+  .projects-toolbar { align-items: center; flex-direction: row; gap: 12px; }
+  .slider-controls { align-self: auto; flex-shrink: 0; }
+  .projects-tab { padding-inline: 10px; }
 }
