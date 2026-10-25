@@ -51,7 +51,7 @@ body {
 }
 
 .sidebar-logo {
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 700;
   color: var(--cyan);
@@ -135,7 +135,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
   line-height: 1.1;
@@ -240,7 +240,7 @@ body {
 }
 
 .hero-name {
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: clamp(40px, 7vw, 80px);
   font-weight: 900;
   line-height: 1.0;
@@ -287,7 +287,7 @@ body {
 
 .cta-btn {
   display: inline-block;
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -344,6 +344,11 @@ body {
   color: var(--grey-light);
   margin-bottom: 20px;
   font-size: 15px;
+  max-width: 65ch;
+  line-height: 1.75;
+  text-align: left;
+  text-wrap: pretty;
+  hyphens: none;
 }
 
 .about-stats {
@@ -356,7 +361,7 @@ body {
 
 .stat-num {
   display: block;
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 32px;
   font-weight: 900;
   color: var(--cyan);
@@ -481,7 +486,7 @@ body {
 }
 
 .edu-school {
-  font-family: 'Orbitron', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -745,7 +750,7 @@ body {
 .project-mark { color: var(--cyan); font-size: 34px; margin-bottom: 32px; }
 
 .project-card h3 {
-  font: 700 20px 'Orbitron', monospace;
+  font: 700 20px 'JetBrains Mono', monospace;
   margin-bottom: 12px;
 }
 
@@ -846,12 +851,20 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (min-width: 901px) {
+  .about-text p { max-width: none; }
+  .hero-name .name-name { word-spacing: -0.08em; }
+}
+
 @media (max-width: 900px) {
   .section { padding: 72px 32px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .skills-grid { grid-template-columns: 1fr; }
   .soft-category { grid-column: span 1; }
-  .edu-card { flex-direction: column; gap: 24px; }
+  .edu-card { flex-direction: column; align-items: stretch; gap: 24px; padding: 28px; }
+  .edu-info, .skill-category { min-width: 0; }
+  .skill-item { grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; }
+  .skill-bar-wrap { grid-column: 1 / -1; grid-row: 2; }
   .edu-year { flex-direction: row; writing-mode: horizontal-tb; }
   .contact-links { flex-direction: column; }
 }
@@ -873,13 +886,101 @@ body {
 }
 
 @media (max-width: 600px) {
-  :root { --sidebar-w: 56px; }
-  .section { padding: 56px 24px; }
-  .hero-name { font-size: 36px; }
+  :root { --sidebar-w: 0px; --mobile-nav-h: 72px; }
+
+  body { padding-bottom: calc(var(--mobile-nav-h) + env(safe-area-inset-bottom, 0px)); }
+  .main-content { margin-left: 0; }
+
+  /* Keep the full phone width available for reading. */
+  .sidebar {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: calc(var(--mobile-nav-h) + env(safe-area-inset-bottom, 0px));
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-right: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .sidebar-nav {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .sidebar-nav li { flex: 1; min-width: 0; }
+  .nav-link {
+    width: 100%;
+    min-width: 44px;
+    height: 58px;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 18px;
+  }
+
+  .nav-link::after {
+    position: static;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    line-height: 1.2;
+    color: inherit;
+    opacity: 1;
+  }
+
+  .nav-link[href="#projects"]::after { content: 'Projects'; }
+  .nav-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; }
+
+  .section {
+    min-height: auto;
+    padding: 56px clamp(20px, 5vw, 30px);
+    scroll-margin-top: 16px;
+  }
+
+  .section-eyebrow { margin-bottom: 14px; font-size: 11px; }
+  .section-title { font-size: clamp(27px, 7vw, 36px); line-height: 1.2; margin-bottom: 28px; }
+  .about-text p, .edu-desc, .contact-sub, .project-card p { font-size: 16px; line-height: 1.75; }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .hero-section { min-height: calc(100svh - var(--mobile-nav-h) - env(safe-area-inset-bottom, 0px)); }
+  .hero-name { font-size: clamp(30px, 8.4vw, 36px); }
   .hero-content { gap: 28px; }
   .hero-portrait-wrap { width: min(200px, 70vw); }
-  .skill-item { grid-template-columns: 90px 1fr 64px; }
-  .projects-toolbar { align-items: center; flex-direction: row; gap: 12px; }
+
+  .edu-card { padding: 20px; gap: 20px; }
+  .edu-badge { max-width: 100%; padding: 5px 10px; line-height: 1.6; }
+  .edu-school { font-size: 22px; line-height: 1.35; }
+  .edu-dept { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.65; }
+  .edu-desc { margin-bottom: 0; }
+  .edu-year { display: none; }
+
+  .skills-grid { gap: 16px; }
+  .skill-category { padding: 20px; }
+  .skill-cat-label { font-size: 11px; letter-spacing: 0.06em; margin-bottom: 22px; }
+  .skill-items { gap: 20px; }
+  .skill-name { font-size: 14px; }
+  .skill-pct { font-size: 11px; }
+  .soft-skill { max-width: 100%; padding: 8px 12px; }
+
+  .projects-toolbar { align-items: center; flex-wrap: wrap; gap: 12px; }
   .slider-controls { align-self: auto; flex-shrink: 0; }
-  .projects-tab { padding-inline: 10px; }
+  .projects-tab { min-height: 44px; padding-inline: 12px; font-size: 12px; }
+  .slider-arrow { width: 44px; height: 44px; }
+  .projects-track { scroll-snap-type: x mandatory; }
+  .project-card { flex-basis: calc(100% - 4px); min-width: 0; padding: 22px; scroll-snap-align: start; }
+  .project-card h3 { font-size: 20px; line-height: 1.4; }
+  .project-mark { margin-bottom: 20px; }
+
+  .contact-sub { margin-bottom: 28px; }
+  .contact-links { gap: 14px; }
+  .contact-card { width: 100%; min-width: 0; padding: 22px; }
+  .contact-value { font-size: 15px; overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, .projects-track { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

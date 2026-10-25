@@ -48,3 +48,19 @@ sliderArrows.forEach((arrow) => {
 projectTracks.forEach((track) => track.addEventListener('scroll', updateSliderState));
 window.addEventListener('resize', updateSliderState);
 updateSliderState();
+
+// Keep the navigation highlight aligned with the section being read.
+const navigationLinks = document.querySelectorAll('.sidebar .nav-link');
+const sectionObserver = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		if (!entry.isIntersecting) return;
+		navigationLinks.forEach((link) => {
+			const isCurrent = link.getAttribute('href') === `#${entry.target.id}`;
+			link.classList.toggle('active', isCurrent);
+			if (isCurrent) link.setAttribute('aria-current', 'location');
+			else link.removeAttribute('aria-current');
+		});
+	});
+}, { rootMargin: '-10% 0px -45% 0px' });
+
+document.querySelectorAll('main > .section').forEach((section) => sectionObserver.observe(section));
